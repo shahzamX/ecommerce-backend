@@ -6,6 +6,7 @@ const createError = require('./errors/createError');
 const  authRoutes = require("./modules/auth/auth.routes.js");
 const { authCheck } = require('./middleware/auth.middleware.js');
 
+const productRoutes = require("./modules/products/product.routes.js");
 
 app.get("/health",(req,res)=>{
     
@@ -45,6 +46,7 @@ const handler404 = (req,res,next)=>{
     
 // })
 
+app.use("/api/products", productRoutes);
 app.use("/api/auth",authRoutes);
 
 app.use(handler404);
